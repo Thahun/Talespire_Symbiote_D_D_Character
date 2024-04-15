@@ -1,0 +1,377 @@
+/**
+ * ################################
+ * # CSS section: Grid element positioning
+ * ################################
+ */
+
+.section-grid-container {
+    display: grid;
+    grid-template-columns: repeat(10,auto);
+    grid-auto-rows: 1.3rem;
+    grid-gap: 0.4rem;
+    grid-auto-flow: row;
+}
+
+.other-modifier-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    grid-auto-rows: 1.3rem;
+    grid-gap: 0.4rem;
+    grid-auto-flow: row;
+}
+
+.section-grid-container.spell-grade-section {
+    grid-template-columns: 8em 8em auto 20px;
+    grid-auto-rows: revert 1.3rem 0.7rem;
+}
+
+/**
+ * Used for grid with +/- icons in the last column
+ */
+.section-grid-container-icon {
+    grid-template-columns: repeat(9,auto) 20px;
+}
+
+.section-grid-container > div,
+.other-modifier-grid-container > div {
+    /* Activate one of the following two, to highlight grid cells */
+    /*background-color: rgba(255, 255, 255, 0.2);*/
+    /*border: dashed 1px beige;*/
+    color: var(--ts-color-secondary);
+}
+
+.grid-item {
+    text-align: center;
+    white-space:nowrap;
+}
+
+.grid-item.align-left {
+    text-align: left;
+}
+
+.grid-item hr {
+    margin-block-start: 0.1em;
+    margin-block-end: 0.1em;
+}
+
+.grid-item-label {
+    text-align: left;
+}
+
+.grid-item-label.align-center {
+    text-align: center;
+}
+
+.section-grid-container > .grid-item-label, 
+.section-grid-container > .grid-item-header-label,
+.other-modifier-grid-container > .grid-item-label, 
+.other-modifier-grid-container > .grid-item-header-label {
+    padding-top: 0.2em;
+}
+
+.section-grid-container > .grid-item-header-label,
+.section-grid-container > .grid-item-subtitel-label,
+.other-modifier-grid-container > .grid-item-header-label,
+.other-modifier-grid-container > .grid-item-subtitel-label {
+    text-align: center;
+    padding-right: 0;
+}
+
+.section-grid-container > .grid-item-subtitel-label,
+.other-modifier-grid-container > .grid-item-subtitel-label {
+    padding-top: 0;
+}
+
+.grid-item-label > label {
+    margin-top: 2px;
+    white-space: nowrap;
+}
+
+.grid-item-label > label.max-width {
+    margin-top: 0;
+    overflow: scroll;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.grid-item-label > ::-webkit-scrollbar {
+    height: 4px;
+}
+
+.grid-item-header-label > label {
+    white-space: nowrap;
+}
+
+.grid-item-subtitel-label > label {
+    white-space: nowrap;
+    font-size: 0.7em;
+}
+
+.section-grid-container > .grid-item-data,
+.other-modifier-grid-container > .grid-item-data {
+    padding-right: 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.section-grid-container > .grid-item-label.align-left, 
+.section-grid-container > .grid-item-header-label.align-left,
+.section-grid-container > .grid-item-subtitel-label.align-left,
+.section-grid-container > .grid-item-data.align-left,
+.other-modifier-grid-container > .grid-item-label.align-left, 
+.other-modifier-grid-container > .grid-item-header-label.align-left,
+.other-modifier-grid-container > .grid-item-subtitel-label.align-left,
+.other-modifier-grid-container > .grid-item-data.align-left {
+    text-align: left;
+}
+
+.section-grid-container > .grid-item-label.align-right, 
+.section-grid-container > .grid-item-header-label.align-right,
+.section-grid-container > .grid-item-subtitel-label.align-right,
+.section-grid-container > .grid-item-data.align-right,
+.other-modifier-grid-container > .grid-item-label.align-right, 
+.other-modifier-grid-container > .grid-item-header-label.align-right,
+.other-modifier-grid-container > .grid-item-subtitel-label.align-right,
+.other-modifier-grid-container > .grid-item-data.align-right {
+    text-align: right;
+}
+
+.grid-item-data:has(> .grid-item-data-flex) {
+    padding-right: 0;
+}
+
+.grid-item-data-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.grid-item-data div.subtext {
+    float: left;
+    text-align: center;
+}
+
+div.subtext > label {
+    font-size: 0.6em;
+    white-space: normal;
+}
+
+.grid-item-data > input:not([type=checkbox],[class=field-data-larger],[class=field-data-large],[class=field-data-medium],[class=field-data-medium-short],[class=field-data-short]) {
+    width: calc(100% - 6px);
+}
+
+.grid-item-data input[type=text].field-data.abilities,
+.grid-item-data input[type=number].field-data.abilities,
+.grid-item-data input[type=text].field-data.stances,
+.grid-item-data input[type=number].field-data.stances,
+.grid-item input[type=text].field-data.maneuvers,
+.grid-item input[type=number].field-data.maneuvers,
+.grid-item-data input[type=text].field-data.spells,
+.grid-item-data input[type=number].field-data.spells,
+.grid-item-data input[type=text].field-data.contacts,
+.grid-item-data input[type=number].field-data.contacts,
+.grid-item-data input[type=text].field-data.familiars,
+.grid-item-data input[type=number].field-data.familiars  {
+    width: calc(100% - 20px - 0.8rem);
+}
+
+.grid-item-data input[type=text].field-data.gems,
+.grid-item-data input[type=number].field-data.gems {
+    width: 20em;
+}
+
+.grid-item-data input[type=text].field-data.equipments,
+.grid-item-data input[type=number].field-data.equipments {
+    width: 18.5em;
+}
+
+.grid-item-data input[type=text].field-data-largest,
+.grid-item-data input[type=number].field-data-largest {
+    width: 16em;
+}
+
+.grid-item-data input[type=text].field-data-larger,
+.grid-item-data input[type=number].field-data-larger {
+    width: 12em;
+}
+
+.grid-item-data input[type=text].field-data-large,
+.grid-item-data input[type=number].field-data-large {
+    width: 9em;
+}
+
+.grid-item-data input[type=text].field-data-medium,
+.grid-item-data input[type=number].field-data-medium {
+    width: 6em;
+}
+
+.grid-item-data input[type=text].field-data-amount,
+.grid-item-data input[type=text].field-data-worth,
+.grid-item-data input[type=number].field-data-amount,
+.grid-item-data input[type=number].field-data-worth {
+    width: 3.5em;
+}
+
+.grid-item-data input[type=text].field-data-short,
+.grid-item-data input[type=number].field-data-short {
+    width: 3em;
+}
+
+.grid-item-data .field-data-text {
+    padding-top: 0.2em;
+}
+
+.grid-item-data .field-data-text.smaller {
+    font-size: smaller;
+}
+
+.grid-item-data > .grid-item-data-flex > .field-data-flex {
+    flex:1
+}
+
+.grid-item-blank {
+    /**
+     * "grid-template-rows" must be specified in the "section-grid-container" above
+     * Use the height of ".section-grid-container" > "grid-auto-rows" for the non blank lines above
+     */
+    height: 0.5em;
+}
+
+/**
+ * ################################
+ * # CSS section: Special cases of expand elements
+ * ################################
+ */
+.expand-content.abilities,
+.expand-content.stances,
+.expand-content.maneuvers,
+.expand-content.contacts,
+.expand-content.familiars {
+    max-width: unset;
+    width: calc(100% - 1.7em);
+}
+
+.expand-content.spells {
+    max-width: unset;
+    width: calc(135%);
+}
+
+/**
+ * ################################
+ * # CSS section: Special cases of dropdown elements
+ * ################################
+ */
+.dropdown.spells {
+    text-align: left;
+}
+
+.dropdown.spells > .dropdown-select {
+    width: calc(100% - 23px);
+    text-overflow:ellipsis;
+}
+
+.dropdown.spells > div.dropdown-open,
+.dropdown.spells > div.dropdown-close {
+    background-color: var(--ts-background-secondary);
+}
+
+/**
+ * ################################
+ * # CSS section: Icons
+ * ################################
+ */
+div.addRemoveIcon {
+    border: solid 2px #4d4d4d;
+    border-radius: 4px;
+    width: 17px;
+    height: 17px;
+    color:#737373;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.0em;
+    text-align: center;
+    cursor: pointer;
+}
+
+img.weaponIcon,
+img.armorIcon {
+    height: 17px;
+    width: auto;
+    padding: 0 2px;
+}
+
+div.character-weapon-state,
+div.character-armor-state,
+div.character-carrying-state,
+div.character-stances-state,
+div.character-equipments-state {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+div.character-carrying-state,
+div.character-stances-state,
+div.character-equipments-state {
+    margin-left: 0;
+}
+
+div.character-carrying-state {
+    cursor: none;
+}
+
+div.character-weapon-state > div.active,
+div.character-armor-state > div.active,
+div.character-carrying-state > div.active,
+div.character-stances-state > div.active,
+div.character-equipments-state > div.active {
+    width: 9px;
+    height: 9px;
+    border-radius: 9px;
+    background-color: #00a800;
+    margin: 4px;
+}
+
+div.character-carrying-state > div.active,
+div.character-stances-state > div.active,
+div.character-equipments-state > div.active {
+    margin: 2px 4px 6px 4px;
+}
+
+div.character-weapon-state > div.inactive,
+div.character-armor-state > div.inactive,
+div.character-carrying-state > div.inactive,
+div.character-stances-state > div.inactive,
+div.character-equipments-state > div.inactive {
+    width: 9px;
+    height: 9px;
+    border-radius: 9px;
+    background-color: #a80000;
+    margin: 4px;
+}
+
+div.character-carrying-state > div.inactive,
+div.character-stances-state > div.inactive,
+div.character-equipments-state > div.inactive {
+    margin: 2px 4px 6px 4px;
+}
+
+i.icon-dice {
+    display: block;
+    position: relative;
+    margin-top:-0.1em;
+    cursor: pointer;
+}
+
+div.icon-center {
+    text-align: center;
+}
+
+i.icon-trash {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-size: 24px;
+    background-image: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAMa0lEQVR4Ae2dTawlRRXH58mAjCIkIipfQRBQohFNNDJEDSGO3yHRhQs1MSauDMiwMG51Z4zRUTCasNGFURfqigw6fixE3RjjF4FxRJ4I4qCCoKOg6Pj/vXfPm779bndX961T1X1vneT/qqur+tSpc/5dXV3dt9/Gnohy8uTJiNqKqlAPbGxshFbdVW/4kTVVJfg1hyTODiVBFAKU4CeOdkNzQ0iwNAFK8BuikWl3XxIsRYAS/ExR7mi2DwkGE6AEvyMKmYtDSTCIACMI/uXy79uFtwhsgzHIb2UEOCrcOYOSPBJCgg2CGVLRupA5+BfJjtsFAj8FgQQfFo7lMrYrtlsEwLiuitTJHHyCfhg7JigHZfNnc9ndFttnmFFdwe0qNz1O6ZSDj0sOCTc7+aZTbVvsdkYA07KILW0K7DjHlOs7Z/5YrvPLdPUKHcwcIYssiu3OCGAWZQ62mVFNb1VmFYJPn+jLqGTXCGDWGVsyE+JC2fOAsIuoZucE0zfI5h/mstviau03OjZz4M2+/dpotFFlDKdvFbidHQOwhZl/m7yurTB1WZtzc8/68cVrWxxC8Lmmdjm8RUX0ImzpIsGl0VvtobB+YrcSoIder6ptBLjNq9EIettu+V4fQf9SKowEpGMnwNktPb2jpSx3UdtM/5zcxtG+kWDsBBiDr1bahkKAlQ5vd+f2dleZTI3zZOlFwnOFlwnkny9cJiCXbCd7/qe0uq5w2my/JZSbMJTbSfL72c5NpY/M8Guljwl/mOWVTEvGToBnt7jzFpVxPX21wMz6DCGGWMDRdWVFYZU0ld1zm79T7hfC5tze+cyJ+WzeXONCUF6zdlrnKVqI43cOmMCG3b6OwtQxjgA8+AEvEVYt+ASdPkFs7mJYN8i6jjGWEeCNcsSHBNLnCOsk/1Jnjwisa5AmldwE4BHpB4WXJ+31eBtjZPi8wOjQtpYQrQe5CJD1+Xg07/kqYjWRUcGVCKkJwBl/o8B1sEiYB1zfJkpFAALOs3Amd0X6e4BRgIdM0UeDFAQg+N8VbCFGm0UGeIDFphuEnw84tvEQbwKU4De6flABJLheiDYSeBOAWW253g+KdeNBBJ/3IKJIddkzisKKEgJfgl9xSKRNfBptLuVJAGb7RXw8MAkCsJRbxMcD/CwuiniOAFEMLEp8PVAI4Ovf0WsvBBh9iHwNLATw9e/otXsSgN/IF/HxQLSFIE8CZH3Rwcfvo9Ha9ruDXkZ6rwQ+LGte2MuiUrnLA/9QhWgvzXiOAHTkPV29KeW9PfCu3ke0HOBNgB+obR5jFonjAXwZ9bUxbwLQbeYCLs+yUb4mwqQPH0afV6UgADHC8GuET5Ip0ssDX1Dta4XowccK70kgbdSFp1nl7aC6V3bnCfhNQrRbvt1N5CGA2QEReGLIe4JFTnmAWzyC73LGn2pmeyvHCFC34SztsN8EHKgXrkmen5TdLnxR+FvKPo+BANX+8hs/3nvjeXe0Z97VBka0bWc5abZV07ERoB4fSMB7BatACAu0Bb7e15A830z6SUjF0DopCEDw6HQMYd4AjBSWj6E7lg4mbcACbvll9RN88OllFVWPT0GA96pBAvXxasMRt8+UrhfPgFrIca5wlcC3Ai6c5fcpPV0YKvyG77jwkPCocK/w11mqZA/X8fuEf5KJLBdL3zcEgv+1mLr3xlTWoOsx7f+Y8ITwOeG/Qkx5UsrunqFLL/19pvAsgcknhGAbEiHoItAnhH9X0v9oO5dcrYa/KVwmPBXbiBQjAGckZwvybYFbP9d7WxpaAWHUrN8mv1L7+ABFNEm1EmgGv1kbx4RDAh0sstsD+AX/4Cf3NZIUI8Bp6sjTwiK5Uzs/I9wleFw7F7U5xn3nyyjW+t8hvLPFwLNV9veW8t5FKQiAUV3/UJDJ1feE7wg/EtbhEsGZzuvdB4TrhLbvIal4SzZsI1aaigAMZ32GfLt1YoQ4Klg+Vr9T6+FWmLkQC12k5PsKPrii70Fd9fd2VchUDllA3VFGhLESw+y2IFs+kxu7m93bXSVKDQKHM5YVc2iVGNxWov++mfK/KOWSgjwiUM76OkC4LeVWj3v4JwWuqTb/OEvb5wj7BL4xyC3i8wSENQWAzy4QEFK+K2h2sc9L6GN0oTMphGG8GrSYbTLJ5IwDRXp6IPVtYE/zSvWKBziJoksqAtwf3fL1U+jiw1QEWL9wTaTHqQjgMnxNxMexzHTxYSoCuMxgY3l2nfWkIsA6+zhW311OolQEcDE+lmfXWU+qpWB83PU8YJ3jENL36M8BaDTVCEBbZRTAC8PEzXcpCTCs6+UoVw+kWgqmE7CYNXMveVyKvyL8SjhPuE64XogtPF/4qsBraDwv4JHufsFT3EaArf8fx/+QS4BDasNLjknx5UK9H++P3OBh6btgQTs3R26nro52632Lkl+VSwBv0yw6S76s/ZTFEB5Bo+uPC5Txcy7gJS6LQBibkgAua9nqA4FZFHz6h1jgtnPD/obooM7kJCUBcjonJIBN9oUe20bCJt2h+71OnqQjgNcwFjqxJJCvCfX4rB7DOi9qhkioHSG66nW8fJeUAPVOxcrj+NDXp3+qurxXF3K2EvyDAm8UhcitIZXGViflJSDE6UP9w3v0oW8cYUfTpNHat+Bbvis9rAqeI4Cb71aFAASIIMQgQZ/g7+vZLnaOSlI+C6Dj/N7udEcP8Bu+G4TQGfmLVPeIYGcvQz6/Xwx9btGHdFI7WFyeA2BNyhGA9uzNXbY9BHL1Ccqm6tvlgOBz9o8t+DLJT1KPAPeoKy/1686cZgvo3M5Imb4/dFmmWa7/TFxdJPUI4DaZWeAdJoahdwcLDl+4i2cMKYOPEa4+S02AJxa61W9nTBIwT/ixYPMFP6vnNT89n42bS02A43HND9IWgwQEnblF6uDTwYf54yWpCfAnr4506IUEYIjkDD72Lnr4NKQfC49JTQBXNi/s4amdzAf6kuASHZPrzD9lueNWagLwrfucEro+YDYyYrlOwqyhlnSzpWzpotQEyDEHMCdxv9+XAE/pmCHHWZsx0odiKGnSsS4E4D66b/CrPoMELBLlkMc9G01NgNSXAL4VQPBjDOMHpScHCVZqBPizJ5trugn6fiFG8E31LdpITQLXtZPUIwBf0+DLHN5C0Bm2Q4Mf+hSR5wQpRwLmICcEN0lNADryoFtvthUPCT63eiBUIAHwFi5hnDRukoMAniMA6/R9zvx3q74FnlGAbb4RFCJcCrxJ4H7JXCUCcOa/TQgd9lkY+rpQFUjAa2Oh4k0C11VAOpmDAMdDvdujXt9hv21VkKXfPk/8PEnAJcBVchDAY1jrM+y3Bd+c3Xf9HxIss85g7dZTz8vlVlurQAAcHzrsf1R1D9W93JA3ElzcUF7fDQliy6OxFdb15SCAe6fqnZzlOfM/0VDWtBsSfF8g7ZJQEnbpqZZ7XC6r+rPMAe6fs2D5TEhwOOtDz/y6RTYSdLXTVV7XG5J/IKTSMnVyjADL2LvoWBzftpBD4Dn7l5EQEpQfhgR6OPYIQLPcv9eDfL72fWvBfu0aJJCAu4P31Y4OIUftkOCs+wiQ+q1g6zlLqh7yoJTy4QY+8HyVwMeePWRTSu8ReEn0FcIZgofEepDVaFsuAvS5z240fg0K3H4QYr5bhTmA9WXVUo+7il0+ykWAJJ3b1duyY5cHchHg6C5Lyo66B+6o7/DI5yKAx7Kph39y6kzio5wEKJeBdnol8U8uAtD1m9r7v9alfR5uLeWonARgiPvAUtav5sEfUbeSDP+4LycBaP9LwkE2imx5AF98KqUvci0E1fvIcipr6W1r+vVjVinP9T7ZsF91XO4RwGwxB3AGuL8FY42OIOWVb94jcF/yberrWEaAun082LlRYGRYRYHwtwkeL5H08tccATY2tpee+TDxSIRLAmRYlUsDkzuQPfCyYUt2CGDBt4IRkcBMmioZLOis7CW5tzeHdaXEfIsA9eDbgSMkAaadKbxJuFI4IFwtvEAYg/AS58+EI8JvZqn9X2JlxyMW887HjSMlQd2T52rHNcK1wqtmhcwfQGcfZ/X7JHYmk/5SuEsg4JN4xmHBl71hzpkICejPIjEi1P+59KWVylZWDWD9zSXKCLgFv3L4dDarwcfq4LNj4iSYToQcLa0HvxcBqFxI4BgdZ9WLgk+TwSOA2VdIYJ6YTtoUfHrQmwAcVEiAF6YhbcGnB4MIwIGFBHhh3NIVfKwfTAAOLiTAC+OUkOBj+f8B1M09nKvq+XoAAAAASUVORK5CYII=);
+}

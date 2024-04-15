@@ -1,0 +1,30 @@
+{
+  "manifestVersion": 1,
+  "name": "D&D Character",
+  "summary": "This Symbiote allows to view, modify and persist your D&D characters. It's using the OGN rules.",
+  "descriptionFilePath": "/README.md",
+  "version": "0.2.1",
+  "about": {
+    "authors": ["Thahun"]
+  },
+  "kind": "webView",
+  "entryPoint": "/index.html",
+  "api": {
+    "version": "0.1",
+    "initTimeout": 10,
+    "subscriptions": {
+      "symbiote": {
+        "onVisibilityEvent": "logSymbioteEvent",
+        "onStateChangeEvent": "logSymbioteEvent"
+      }
+    }
+  },
+  "environment": {
+    "extras": [
+      "colorStyles",
+      "fonts",
+      "icons"
+    ],
+    "webViewBackgroundColor": "#000000"
+  }
+}
