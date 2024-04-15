@@ -1,10 +1,9 @@
 # D&D Character
 
-This symbiote enables you to manage your D&D character directly in Talespire.
+This symbiote enables you to manage your D&D characters directly in Talespire.
 So there's no need anymore to use an external spreadsheet in parallel.
 
 ## Features
-
 - Creating, modifying, persistig and loading your characters
 - Exporting a character as well as importing a character
 - Automatic updates of related stats, like the race modifiers added to attributes
@@ -13,21 +12,14 @@ So there's no need anymore to use an external spreadsheet in parallel.
 - Weapons, armor and equipment can be marked as active or inactive (worn/carried or not)
 - Maneuvers and skills can be marked as e.g. prepared or used
 
-## Changelog
-- 0.1.1
-Added: A field to set special movement for "fly". As distance/speed of fly depends on how a character gains fly, it's not calculated and by that a manual value, not reduces when overloaded. But following rules the lift limit should be still applied.
+## Installation
+1. Download the repository as an archive
+2. Extract it to your Talespire Symbiote folder, e.g. `C:\Users\<USERNAME>\AppData\LocalLow\BouncyRock Entertainment\TaleSpire\Symbiotes\`
+3. If not yet done, [activate Symbiotes in Talespire](https://symbiote-docs.talespire.com/user_docs.html)
+4. Open the side panel, when you're on a campaign map and start creating your character
 
-- 0.2.0
-Added: A section for familiars.
-
-- 0.2.1
-Bugfix: Running multiplier and carrying penalties got lost when persisting
-Bugfix: Armors closed when de-/activating them
-Added: Race "Dragonkin"
-Update: Default state of char select changed to "open"
-
-### Bugs:
-
+## Usage
+See [introduction](doc/INTRODUCTION.md)
 
 ### Future Features
 - Extend Weapon "Attack", by "other" modifiers or
