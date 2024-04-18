@@ -19,7 +19,7 @@ class SymbioteStorage {
         // Enable to flush storage in case it's broken
         //this.flushAll();
 
-        TS.localStorage.campaign.getBlob().then((storedData) => {
+        TS.localStorage.global.getBlob().then((storedData) => {
             debug.log("storedData: " + storedData);
             this.storage.setStorageAsString(storedData || "{}");
             this.initState = true;
@@ -39,12 +39,12 @@ class SymbioteStorage {
 
     flushAll() {
         debug.log("SymbioteStorage.flush");
-        TS.localStorage.campaign.deleteBlob();
+        TS.localStorage.global.deleteBlob();
     }
 
     persist() {
         debug.log("SymbioteStorage.persist");
-        TS.localStorage.campaign.setBlob(this.storage.getStorageAsString()).then(() => {
+        TS.localStorage.global.setBlob(this.storage.getStorageAsString()).then(() => {
             debug.log("SymbioteStorage.persist success")
         }).catch(e => {
             error.show("Failed to persist to local storage: " + e.message);

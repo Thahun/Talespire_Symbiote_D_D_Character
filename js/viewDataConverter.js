@@ -1,9 +1,13 @@
 class ViewDataConverter extends AbstractConverter {
+    /**
+     * If there's nothing to convert, just use "ViewDataConverterToTarget" as the converter. It'll only increase the version
+     */
     conversionDefinitions = [
-        new ConversionDefinition('0.0.0', '0.1.0', 'ViewDataConverterTo0_1_0'),
-        new ConversionDefinition('0.1.0', '0.1.1', 'ViewDataConverterTo0_1_1'),
+        new ConversionDefinition('0.0.0', '0.1.0', 'ViewDataConverterToTarget'),
+        new ConversionDefinition('0.1.0', '0.1.1', 'ViewDataConverterToTarget'),
         new ConversionDefinition('0.1.1', '0.2.0', 'ViewDataConverterTo0_2_0'),
-        new ConversionDefinition('0.2.0', '0.2.1', 'ViewDataConverterTo0_2_1'),
+        new ConversionDefinition('0.2.0', '0.2.1', 'ViewDataConverterToTarget'),
+        new ConversionDefinition('0.2.1', '0.3.0', 'ViewDataConverterToTarget'),
     ];
 
     /**
@@ -17,33 +21,16 @@ class ViewDataConverter extends AbstractConverter {
     }
 }
 
-converters.ViewDataConverterTo0_1_0 = class {
+converters.ViewDataConverterToTarget = class {
     /**
-     * This is just an example
+     * If there's nothing to convert, use this to just increase the version
      * 
-     * @param {ViewDTO} data 
-     * @returns {ViewDTO}
+     * @param {SheetData} data 
+     * @param {String} targetVersion 
+     * @returns {SheetData}
      */
-    convert(data) {
-        debug.log("ViewDataConverterTo0_1_0.convert");
-
-        data.viewVersion = '0.1.0';
-
-        return data;
-    }
-}
-
-converters.ViewDataConverterTo0_1_1 = class {
-    /**
-     * Conversion from v0.1.0 to v0.1.1
-     * 
-     * @param {ViewDTO} data 
-     * @returns {ViewDTO}
-     */
-    convert(data) {
-        debug.log("ViewDataConverterTo0_1_1.convert");
-
-        data.viewVersion = '0.1.1';
+    convert(data, targetVersion) {
+        data.sheetVersion = targetVersion;
 
         return data;
     }
@@ -51,32 +38,14 @@ converters.ViewDataConverterTo0_1_1 = class {
 
 converters.ViewDataConverterTo0_2_0 = class {
     /**
-     * Conversion from v0.1.1 to v0.2.0
-     * 
      * @param {ViewDTO} data 
+     * @param {String} targetVersion 
      * @returns {ViewDTO}
      */
-    convert(data) {
-        debug.log("ViewDataConverterTo0_2_0.convert");
-
-        data.viewVersion = '0.2.0';
+    convert(data, targetVersion) {
+        data.sheetVersion = targetVersion;
+        
         data.sectionList.push(new ViewSectionDTO('section-familiars', SectionHelper.STATE_CLOSE));
-
-        return data;
-    }
-}
-
-converters.ViewDataConverterTo0_2_1 = class {
-    /**
-     * Conversion from v0.2.0 to v0.2.1
-     * 
-     * @param {ViewDTO} data 
-     * @returns {ViewDTO}
-     */
-    convert(data) {
-        debug.log("ViewDataConverterTo0_2_1.convert");
-
-        data.viewVersion = '0.2.1';
 
         return data;
     }

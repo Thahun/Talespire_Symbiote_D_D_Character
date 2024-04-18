@@ -53,7 +53,7 @@ class AbstractConverter {
             for (let i = 0; i < conversionSteps.length; i++) {
                 const conversionStep = conversionSteps[i];
                 let converter = new converters[conversionStep.converter]();
-                converter.convert(data);
+                converter.convert(data, conversionStep.targetVersion);
             }
         }
 

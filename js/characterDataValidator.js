@@ -20,9 +20,15 @@ var validators = {};
 class CharacterDataValidator {
     parent;
 
+    /**
+     * If there's nothing new, just use the latest still matching validator for the new versio as well
+     */
     validationDefinitions = [
         new ValidationDefinition('0.1.0', 'SheetDataValidator0_1_0'),
+        new ValidationDefinition('0.1.1', 'SheetDataValidator0_1_0'),
+        new ValidationDefinition('0.2.0', 'SheetDataValidator0_1_0'),
         new ValidationDefinition('0.2.1', 'SheetDataValidator0_2_1'),
+        new ValidationDefinition('0.3.0', 'SheetDataValidator0_2_1'),
     ];
 
     violations=[];

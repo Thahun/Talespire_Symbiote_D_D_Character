@@ -1,9 +1,13 @@
 class CharacterDataConverter extends AbstractConverter {
+    /**
+     * If there's nothing to convert, just use "ViewDataConverterToTarget" as the converter. It'll only increase the version
+     */
     conversionDefinitions = [
-        new ConversionDefinition('0.0.0', '0.1.0', 'SheetDataConverterTo0_1_0'),
+        new ConversionDefinition('0.0.0', '0.1.0', 'SheetDataConverterToTarget'),
         new ConversionDefinition('0.1.0', '0.1.1', 'SheetDataConverterTo0_1_1'),
         new ConversionDefinition('0.1.1', '0.2.0', 'SheetDataConverterTo0_2_0'),
-        new ConversionDefinition('0.2.0', '0.2.1', 'SheetDataConverterTo0_2_1'),
+        new ConversionDefinition('0.2.0', '0.2.1', 'SheetDataConverterToTarget'),
+        new ConversionDefinition('0.2.1', '0.3.0', 'SheetDataConverterToTarget'),
     ];
 
     /**
@@ -17,17 +21,16 @@ class CharacterDataConverter extends AbstractConverter {
     }
 }
 
-converters.SheetDataConverterTo0_1_0 = class {
+converters.SheetDataConverterToTarget = class {
     /**
-     * This is just an example
+     * If there's nothing to convert, use this to just increase the version
      * 
      * @param {SheetData} data 
+     * @param {String} targetVersion
      * @returns {SheetData}
      */
-    convert(data) {
-        debug.log("SheetDataConverterTo0_1_0.convert");
-
-        data.sheetVersion = '0.1.0';
+    convert(data, targetVersion) {
+        data.sheetVersion = targetVersion;
 
         return data;
     }
@@ -35,15 +38,12 @@ converters.SheetDataConverterTo0_1_0 = class {
 
 converters.SheetDataConverterTo0_1_1 = class {
     /**
-     * Conversion from v0.1.0 to v0.1.1
-     * 
      * @param {SheetData} data 
      * @returns {SheetData}
      */
-    convert(data) {
-        debug.log("SheetDataConverterTo0_1_1.convert");
-
-        data.sheetVersion = '0.1.1';
+    convert(data, targetVersion) {
+        data.sheetVersion = targetVersion;
+        
         data.movement.specialRoundFly = 0;
 
         return data;
@@ -52,32 +52,13 @@ converters.SheetDataConverterTo0_1_1 = class {
 
 converters.SheetDataConverterTo0_2_0 = class {
     /**
-     * Conversion from v0.1.1 to v0.2.0
-     * 
      * @param {SheetData} data 
      * @returns {SheetData}
      */
-    convert(data) {
-        debug.log("SheetDataConverterTo0_2_0.convert");
+    convert(data, targetVersion) {
+        data.sheetVersion = targetVersion;
 
-        data.sheetVersion = '0.2.0';
         data.familiars = new SheetDataFamiliarsDTO([]);
-
-        return data;
-    }
-}
-
-converters.SheetDataConverterTo0_2_1 = class {
-    /**
-     * Conversion from v0.2.0 to v0.2.1
-     * 
-     * @param {SheetData} data 
-     * @returns {SheetData}
-     */
-    convert(data) {
-        debug.log("SheetDataConverterTo0_2_1.convert");
-
-        data.sheetVersion = '0.2.1';
 
         return data;
     }
