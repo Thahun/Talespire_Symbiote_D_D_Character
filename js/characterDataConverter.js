@@ -30,6 +30,7 @@ converters.SheetDataConverterToTarget = class {
      * @returns {SheetData}
      */
     convert(data, targetVersion) {
+        debug.log("SheetDataConverterToTarget.convert");
         data.sheetVersion = targetVersion;
 
         return data;

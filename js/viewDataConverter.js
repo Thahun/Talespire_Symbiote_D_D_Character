@@ -25,12 +25,13 @@ converters.ViewDataConverterToTarget = class {
     /**
      * If there's nothing to convert, use this to just increase the version
      * 
-     * @param {SheetData} data 
+     * @param {ViewDTO} data 
      * @param {String} targetVersion 
-     * @returns {SheetData}
+     * @returns {ViewDTO}
      */
     convert(data, targetVersion) {
-        data.sheetVersion = targetVersion;
+        debug.log("ViewDataConverterToTarget.convert");
+        data.viewVersion = targetVersion;
 
         return data;
     }
@@ -43,7 +44,7 @@ converters.ViewDataConverterTo0_2_0 = class {
      * @returns {ViewDTO}
      */
     convert(data, targetVersion) {
-        data.sheetVersion = targetVersion;
+        data.viewVersion = targetVersion;
         
         data.sectionList.push(new ViewSectionDTO('section-familiars', SectionHelper.STATE_CLOSE));
 
