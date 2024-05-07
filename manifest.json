@@ -3,7 +3,7 @@
   "name": "D&D Character",
   "summary": "This Symbiote allows to view, modify and persist your D&D characters. It's using the OGN rules.",
   "descriptionFilePath": "/README.md",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "about": {
     "authors": ["Thahun"]
   },

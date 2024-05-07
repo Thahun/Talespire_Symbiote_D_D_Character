@@ -1,4 +1,7 @@
 # Changelog
+## 0.3.1
+- Fixed view converter
+
 ## 0.3.0
 - Change storage from "TS.localStorage.campaign" to "TS.localStorage.global" to enable char preparation and usage across different campaigns
 - Simplyfied the definition of validators and converters for versions without real changes in data structure

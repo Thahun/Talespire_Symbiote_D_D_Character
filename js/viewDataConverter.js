@@ -8,6 +8,7 @@ class ViewDataConverter extends AbstractConverter {
         new ConversionDefinition('0.1.1', '0.2.0', 'ViewDataConverterTo0_2_0'),
         new ConversionDefinition('0.2.0', '0.2.1', 'ViewDataConverterToTarget'),
         new ConversionDefinition('0.2.1', '0.3.0', 'ViewDataConverterToTarget'),
+        new ConversionDefinition('0.3.0', '0.3.1', 'ViewDataConverterToTarget'),
     ];
 
     /**

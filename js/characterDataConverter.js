@@ -8,6 +8,7 @@ class CharacterDataConverter extends AbstractConverter {
         new ConversionDefinition('0.1.1', '0.2.0', 'SheetDataConverterTo0_2_0'),
         new ConversionDefinition('0.2.0', '0.2.1', 'SheetDataConverterToTarget'),
         new ConversionDefinition('0.2.1', '0.3.0', 'SheetDataConverterToTarget'),
+        new ConversionDefinition('0.3.0', '0.3.1', 'SheetDataConverterToTarget'),
     ];
 
     /**
