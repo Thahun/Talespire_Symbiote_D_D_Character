@@ -29,6 +29,7 @@ class CharacterDataValidator {
         new ValidationDefinition('0.2.0', 'SheetDataValidator0_1_0'),
         new ValidationDefinition('0.2.1', 'SheetDataValidator0_2_1'),
         new ValidationDefinition('0.3.0', 'SheetDataValidator0_2_1'),
+        new ValidationDefinition('0.3.1', 'SheetDataValidator0_2_1'),
     ];
 
     violations=[];
